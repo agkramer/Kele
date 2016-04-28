@@ -4,9 +4,11 @@ require 'rest_client'
 require 'rubygems'
 require 'pry'
 require './roadmap'
+require './messaging'
 
 class Kele
   include Roadmap
+  include Messaging
 
   def initialize(email, password)
     @email = email
@@ -30,3 +32,5 @@ class Kele
     JSON.parse(response)
   end
 end
+
+# kele_client = Kele.new("kramer.alleng@gmail.com", "helloworld")
