@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 require 'pry'
 
 class Kele
@@ -12,4 +13,6 @@ class Kele
 
     @auth_token = response["auth_token"]
   end
+
+
 end
