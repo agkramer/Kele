@@ -32,5 +32,3 @@ class Kele
     JSON.parse(response)
   end
 end
-
-# kele_client = Kele.new("kramer.alleng@gmail.com", "helloworld")
