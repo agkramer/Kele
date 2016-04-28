@@ -1,5 +1,7 @@
 require 'httparty'
 require 'json'
+require 'rest_client'
+require 'rubygems'
 require 'pry'
 
 class Kele
@@ -14,5 +16,10 @@ class Kele
     @auth_token = response["auth_token"]
   end
 
+  def get_me
+    headers = {:content_type => 'application/json', :authorization => @auth_token}
+    response = RestClient.get 'https://www.bloc.io/api/v1/users/me', headers
+    JSON.parse(response)
+  end
 
 end
