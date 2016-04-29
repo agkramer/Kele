@@ -1,6 +1,6 @@
 module Messaging
   def get_messages
-    headers = {:content_type => 'application/json', :authorization => @auth_token}
+    headers = {content_type: 'application/json', authorization: @auth_token}
     response = RestClient.get "https://www.bloc.io/api/v1/message_threads", headers
     JSON.parse(response)
   end
