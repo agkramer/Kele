@@ -1,23 +1,23 @@
-require 'httparty'
 require 'json'
 require 'rest_client'
-require 'rubygems'
+require 'rubygems' if RUBY_VERSION < '1.9'
 require 'pry'
 require './roadmap'
 require './messaging'
 
 class Kele
-  include Roadmap
   include Messaging
+  include Roadmap
 
   def initialize(email, password)
     @email = email
     @password = password
 
-    data = {email: @email, password: @password}
+    values = {email: @email, password: @password}
+    headers = {content_type: 'application/json'}
 
-    response = HTTParty.post("https://www.bloc.io/api/v1/sessions", {body: data})
-    @auth_token = response["auth_token"]
+    response = RestClient.post 'https://www.bloc.io/api/v1/sessions', values, headers
+    @auth_token = JSON.parse(response)["auth_token"]
   end
 
   def get_me
