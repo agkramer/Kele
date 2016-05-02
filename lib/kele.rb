@@ -2,8 +2,8 @@ require 'json'
 require 'rest_client'
 require 'rubygems' if RUBY_VERSION < '1.9'
 require 'pry'
-require './roadmap'
 require './messaging'
+require './roadmap'
 
 class Kele
   include Messaging
